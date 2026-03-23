@@ -38,7 +38,7 @@ const store = MongoStore.create({
   touchAfter: 24 * 3600,
 });
 
-  store.on("error",()=>{
+  store.on("error",(err)=>{
   console.log("ERROR in Mongo-Session Store! ",err);
   });
 
@@ -72,7 +72,8 @@ passport.deserializeUser(User.deserializeUser());
 app.use(express.urlencoded({ extended: true }));
 app.use(express.static(path.join(__dirname, "public")));
 app.use(methodOverride("_method"));
-
+const subscriberRoutes = require("./routes/subscribers.js");
+app.use("/", subscriberRoutes);
 
 
 async function main() {
