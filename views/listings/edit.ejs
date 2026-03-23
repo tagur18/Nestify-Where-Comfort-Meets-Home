@@ -1,0 +1,111 @@
+<% layout("layouts/boilerplate") %>
+
+<div class="container mt-5">
+
+<h2 class="mb-4">Edit Your  Listing</h2>
+
+<div class="row">
+<div class="col-md-8 offset-md-2">
+<form method="POST" 
+      action="/listings/<%= listing._id %>?_method=PUT" 
+      enctype="multipart/form-data"
+      novalidate 
+      class="needs-validation">
+
+<div class="mb-3">
+<label for="title" class="form-label">Title</label>
+<input 
+name="listing[title]" 
+id="title"
+value="<%= listing.title %>"
+type="text" 
+class="form-control"
+required>
+<div class="valid-feedback">
+Title looks good!
+</div>
+</div>
+
+<div class="mb-3">
+<label for="description" class="form-label">Description</label>
+<textarea 
+name="listing[description]" 
+id="description"
+class="form-control"
+rows="3"
+required><%= listing.description %></textarea>
+<div class="invalid-feedback">
+Please Enter a Valid Description!
+</div>
+</div>
+
+
+<div class="mb-3">
+<img src="<%= originalImageUrl %>" class="preview-img" />
+
+</div>
+
+
+<div class="mb-3">
+<label for="image" class="form-label">Upload New Image</label>
+<input 
+name="listing[image]" 
+type="file" 
+class="form-control">
+</div>
+
+<div class="mb-3">
+<label for="price" class="form-label">Price (₹ / night)</label>
+<input 
+name="listing[price]" 
+id="price"
+value="<%= listing.price %>"
+type="number" 
+class="form-control"
+required>
+<div class="invalid-feedback">
+Price  should be valid!!
+</div>
+</div>
+
+<div class="row">
+
+<div class="col-md-6 mb-3">
+<label for="location" class="form-label">Location</label>
+<input 
+name="listing[location]" 
+id="location"
+value="<%= listing.location %>"
+type="text" 
+class="form-control"
+required>
+<div class="invalid-feedback">
+Location should be valid!!
+</div>
+</div>
+
+<div class="col-md-6 mb-3">
+<label for="country" class="form-label">Country</label>
+<input 
+name="listing[country]" 
+id="country"
+value="<%= listing.country %>"
+type="text" 
+class="form-control"
+required>
+<div class="invalid-feedback">
+Country name should be valid!!
+</div>
+</div>
+
+</div>
+
+<button class="btn btn-dark">Update Listing</button>
+
+</form>
+
+</div>
+</div>
+
+</div>
+

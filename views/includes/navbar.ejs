@@ -1,0 +1,35 @@
+<nav class="navbar navbar-expand-md navbar-light bg-light border-bottom sticky-top">
+  <div class="container-fluid">
+
+    <!-- Logo -->
+    <a class="navbar-brand" href="/listings">
+      <img src="https://cdn-icons-png.flaticon.com/512/2111/2111320.png" style="width:30px;">
+    </a> 
+
+    <!-- Toggle Button -->
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAlMarkup">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <!-- Navbar Links -->
+    <div class="collapse navbar-collapse" id="navbarNavAlMarkup">
+
+      <div class="navbar-nav ">
+        
+        <a class="nav-link" href="/listings"><b>Explore</b></a>
+        
+      </div>
+
+      <div class="navbar-nav ms-auto">
+        <a class="nav-link" href="/listings/new"><b>Add New Listing</b></a>
+        <% if(!currUser) { %>
+        <a class="nav-link" href="/users/signup"><b>Sign Up</b></a>
+        <a class="nav-link" href="/users/login"><b>Log in</b></a>
+        <%}%>
+        <% if(currUser) { %>
+        <a class="nav-link" href="/users/logout"><b>Log out</b></a> <%}%>
+      </div>
+    </div>
+  
+  </div>
+</nav>

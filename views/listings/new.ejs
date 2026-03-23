@@ -1,0 +1,120 @@
+<% layout("layouts/boilerplate") %>
+
+<div class="container mt-5">
+
+<h2 class="mb-4">Create New Listing</h2>
+
+<div class="row">
+ <div class="col-md-8 offset-md-2">
+
+<form method="POST" action="/listings" novalidate class="needs-validation"enctype="multipart/form-data">
+
+<div class="mb-3">
+<label for="title" class="form-label">Title</label>
+<input 
+name="listing[title]" 
+id="title"
+placeholder="Enter title" 
+type="text" 
+class="form-control"
+enctype="multipart/form-data"
+required>
+<div class="valid-feedback">
+Title looks good!
+</div >
+</div>
+
+
+<div class="mb-3">
+<label for="description" class="form-label">Description</label>
+<textarea 
+name="listing[description]" 
+id="description"
+class="form-control"
+rows="3"
+placeholder="Enter listing description"
+required>
+</textarea>
+<div class="invalid-feedback">
+Please Enter a Valid Description!
+</div>
+</div>
+
+<!-- <div class="mb-3">
+<label for="image" class="form-label">Image URL</label>
+<input 
+name="listing[image]" 
+id="image"
+placeholder="Enter image URL" 
+type="text" 
+class="form-control">
+</div> -->
+
+<div class="mb-3">
+<label for="image" class="form-label">Upload Listing Image</label>
+<input 
+name="listing[image]" 
+id="image"
+type="file" 
+class="form-control">
+required
+</div>
+
+<div class="mb-3">
+<label for="price" class="form-label">Price (₹ / night)</label>
+<input 
+name="listing[price]" 
+id="price"
+type ="number"
+placeholder="Enter price" 
+class="form-control"
+required>
+<div class="invalid-feedback">
+Price  should be valid!!
+</div>
+</div>
+
+<div class="row">
+
+<div class="col-md-6 mb-3">
+<label for="location" class="form-label">Location</label>
+<input 
+name="listing[location]" 
+id="location"
+placeholder="Enter location" 
+type="text" 
+class="form-control"
+required>
+<div class="invalid-feedback">
+Location should be valid!!
+</div>
+</div>
+
+<div class="col-md-6 mb-3">
+<label for="country" class="form-label">Country</label>
+<input 
+name="listing[country]" 
+id="country"
+placeholder="Enter country" 
+type="text" 
+class="form-control"
+required>
+<div class="invalid-feedback">
+Country name should be valid!!
+</div>
+</div>
+
+</div>
+
+<button class="btn btn-dark">Add Listing</button>
+<br>
+<br>
+<br>
+<br>
+
+</form>
+
+</div>
+</div>
+
+</div>

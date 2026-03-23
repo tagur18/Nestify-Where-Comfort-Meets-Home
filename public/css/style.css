@@ -1,0 +1,275 @@
+
+
+body{
+    font-family: "Lora", serif !important;
+    display: flex;
+    flex-direction: column ;
+    min-height: 100vh;
+    font-size: 20px !important;
+  line-height: 1.6 !important;
+  
+ 
+}
+.container{
+   flex: 1;
+}
+.navbar{
+    height: 5rem;
+    background-color: white;
+}
+.nav-link{
+    color: #222222 !important;
+}
+.f-info-links a{
+    text-decoration: none;
+    color: #222222;
+}
+.f-info-links a:hover{
+    text-decoration: underline;
+    color: #e76464;
+}
+.f-info-links,
+.f-info-social,
+.f-info-brand{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.f-info-social i{
+    margin-right: 1rem;
+    font-size: 1.5rem;
+}
+.f-info{
+    display: flex;
+    text-align: center;
+    height: 8rem;
+    background-color: #ebebeb;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+
+
+.listing-card{
+    border: none !important;
+    margin-bottom: 2rem;
+    transition: transform 0.2s ease;
+}
+
+.card:hover{
+    transform: scale(1.03);
+}
+
+.card-img-top{
+    border-radius: 1rem !important;
+    width: 100% !important;
+    height: 20rem;
+    object-fit: cover !important;
+}
+
+.card-body{
+    padding: 0.5rem !important;
+}
+
+.card-title{
+    font-weight: 600;
+}
+
+.card-text{
+    font-weight: 400;
+    color: #6c757d;
+}
+form{
+background:white;
+padding:25px;
+border-radius:10px;
+box-shadow:0 5px 15px rgba(0,0,0,0.1);
+}
+
+
+a{
+    text-decoration: none !important;
+    color: inherit !important;
+}
+.btn{
+    background-color: #e76464 !important;
+    border: none !important;
+}
+.show-img{
+    height: 40vh;
+}
+
+.preview-img {
+  width: 300px;        
+  height: 200px;       
+  object-fit: cover;   
+  border-radius: 10px; 
+  margin-bottom: 10px;
+}
+
+ #filters {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center ;
+  text-align: center;
+}
+.filter{
+    margin-top: 1.2rem;
+    text-align: center;
+    margin-right: 2rem;
+    
+    opacity: 0.7;
+  }.filter:hover{
+    opacity: 1;
+    cursor: pointer;
+  }
+  .filter p{
+    font-size: 0.8rem;
+  }
+.search-wrapper {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  margin-top: 0px;
+  margin-bottom: 5px;   
+}
+
+.search-container {
+  display: flex;
+  justify-content: center;
+}
+
+.search-bar {
+  display: flex;
+  align-items: center;
+  background: white;
+  border-radius: 35px;
+  padding: 4px;
+    border: 2px solid black;
+  box-shadow: 0 2px 8px rgba(5, 2, 2, 0.1);
+}
+
+.search-input {
+  border: none;
+  outline: none;
+  padding: 8px 15px;
+  border-radius: 30px;
+  width: 400px;
+  text-align: center;
+  border-radius: 25px;
+  
+}
+
+.tax-toggle{
+  border: 1px solid black;
+  border-radius: 1rem;
+  height: 3.5rem;
+  padding: 1rem;
+padding-bottom: 1rem;
+}
+
+.search-btn {
+  background: #ff385c;
+  color: white;
+  border: none;
+  padding: 6px 14px;
+  border-radius: 30px;
+  cursor: pointer;
+  border: 2px solid rgb(164, 158, 158);
+}
+
+.tax-info{
+   display: none;
+
+}
+.tax-toggle {
+  border: 2px solid black;
+  border-radius: 2rem;
+  padding: 10px 20px;
+  display: flex;                /* 🔥 IMPORTANT */
+  align-items: center;          /* vertical center */
+  justify-content: space-between; /* text left, toggle right */
+
+  gap: 15px;
+}
+
+/* Media-Queires */
+@media (max-width: 576px) {
+
+  /* 🔹 Navbar */
+  .navbar {
+    height: auto;
+    padding: 10px;
+  }
+
+  .nav-link {
+    font-size: 14px;
+  }
+
+  /* 🔹 Search */
+  .search-wrapper {
+    margin-top: 5px;
+  }
+
+  .search-input {
+    width: 180px;
+    font-size: 14px;
+  }
+
+  .search-btn {
+    padding: 5px 10px;
+    font-size: 14px;
+  }
+
+  /* 🔹 Filters */
+  #filters {
+    overflow-x: auto;
+    flex-wrap: nowrap;
+    gap: 15px;
+    padding-bottom: 10px;
+  }
+
+  .filter {
+    min-width: 70px;
+  }
+
+  .filter p {
+    font-size: 0.7rem;
+  }
+
+  /* 🔹 Cards */
+  .card-img-top {
+    height: 15rem;
+  }
+
+  h1 {
+    font-size: 22px;
+  }
+
+  /* 🔹 Footer */
+  .f-info {
+    height: auto;
+    padding: 10px;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .f-info-social i {
+    font-size: 1.2rem;
+  }
+}
+
+
+@media (max-width: 576px) {
+  #filters {
+    display: none !important;
+  }
+}
+@media (max-width: 576px) {
+  .card-img-top {
+    height: 12rem;
+  }
+}
