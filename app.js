@@ -92,10 +92,10 @@ app.use((req, res, next) => {
   next();
 });
 
-// // 🔹 HOME ROUTE
-// app.get("/", (req, res) => {
-//   res.redirect("/listings");
-// });
+// 🔹 HOME ROUTE
+app.get("/", (req, res) => {
+  res.redirect("/listings");
+});
 
 // 🔹 DEMO USER (for testing)
 app.get("/demouser", async (req, res) => {
