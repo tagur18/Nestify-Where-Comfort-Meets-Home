@@ -1,27 +1,27 @@
+require("dotenv").config();
 const mongoose = require("mongoose");
 const initdata = require("./data.js");
 const Listing = require("../models/listing.js");
 
-const mongourl =  "mongodb://127.0.0.1:27017/Airbnb";
-main().then(() => {
-console.log("Connected to DB");
-}).catch(err =>{
-    console.log(err);
-});
+const dbURL = process.env.ATLAS_URL || "mongodb://127.0.0.1:27017/Airbnb";
+
 async function main() {
-  await mongoose.connect(mongourl);
+  await mongoose.connect(dbURL);
+  console.log("Connected to DB");
+  await initDB();
 }
 
-const initDB = async () =>{
-  await Listing.deleteMany({});
-  initdata.data = initdata.data.map((obj) => ({
-  ...obj,
-  image : obj.image,
-  owner: "69bf683e8e05e893498da949"
-}));
- await Listing.insertMany(initdata.data);
- console.log("Data was initialized !");
+const initDB = async () => {
+  await Listing.deleteMany({});  // clears old data
 
+  const updatedData = initdata.data.map((obj) => ({
+    ...obj,
+    owner: "69bf683e8e05e893498da949",
+  }));
+
+  await Listing.insertMany(updatedData);
+
+  console.log("Data was initialized!");
 };
-initDB();
 
+main().catch(err => console.log(err));
