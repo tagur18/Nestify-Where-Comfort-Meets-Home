@@ -9,8 +9,8 @@ const { reviewSchema } = require("../schema.js");
 const Review = require("../models/reviews.js");
 const reviewController = require("../controllers/reviews.js");
 
-// 🔹 Validation
-// ➕ Create Review
+
+//  Create Review
 router.post(
   "/",
   isLoggedIn,
@@ -18,7 +18,7 @@ router.post(
   wrapAsync(reviewController.createReview)
 );
 
-// ❌ Delete Review
+//  Delete Review
 router.delete(
   "/:reviewId", isLoggedIn,
   isReviewAuthor,

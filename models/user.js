@@ -1,7 +1,7 @@
 const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
-// 🔥 FORCE correct import
+//  FORCE correct import
 const passportLocalMongoose =
   require("passport-local-mongoose").default ||
   require("passport-local-mongoose");
@@ -13,7 +13,7 @@ const userSchema = new Schema({
   },
 });
 
-// Debug check (optional)
+// Debug check 
 console.log("TYPE:", typeof passportLocalMongoose);
 
 userSchema.plugin(passportLocalMongoose);

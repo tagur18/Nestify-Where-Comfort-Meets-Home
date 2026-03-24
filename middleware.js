@@ -2,7 +2,7 @@ const Listing = require("./models/listing.js");
 const Expresserr = require("./utils/Expresserrorr.js");
 const { listingSchema ,reviewSchema } = require("./schema.js");
 const Review =require("./models/reviews.js")
-// 🔐 Check if user is logged in
+
 module.exports.isLoggedIn = (req, res, next) => {
   if (!req.isAuthenticated()) {
     req.session.redirectUrl = req.originalUrl;
@@ -12,7 +12,7 @@ module.exports.isLoggedIn = (req, res, next) => {
   next();
 };
 
-// 🔁 Save redirect URL after login
+
 module.exports.saveRedirectUrl = (req, res, next) => {
   if (req.session.redirectUrl) {
     res.locals.redirectUrl = req.session.redirectUrl;
@@ -20,7 +20,7 @@ module.exports.saveRedirectUrl = (req, res, next) => {
   next();
 };
 
-// 🔒 Check if current user is owner of listing
+
 module.exports.isOwner = async (req, res, next) => {
   let { id } = req.params;
 
@@ -31,10 +31,10 @@ module.exports.isOwner = async (req, res, next) => {
     return res.redirect(`/listings/${id}`);
   }
 
-  next(); // 🔥 IMPORTANT
+  next(); 
 };
 
-// ✅ Validate listing (Joi)
+
 module.exports.validateListing = (req, res, next) => {
   const { error } = listingSchema.validate(req.body);
 

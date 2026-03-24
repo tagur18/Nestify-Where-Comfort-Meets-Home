@@ -1,7 +1,7 @@
 if(process.env.NODE_ENV != "production"){
 require('dotenv').config();
 }
-// console.log(process.env);
+
 
 
 const express = require("express");
@@ -19,11 +19,11 @@ const passport = require("passport");
 const LocalStrategy = require("passport-local");
 const User = require("./models/user.js");
 
-// 🔹 Routes
+//Routes
 const listingRoutes = require("./routes/listing.js");
 const reviewRoutes = require("./routes/review.js");
 const userRoutes = require("./routes/userid.js");
-// 🔹 EJS Setup
+//EJS Setup
 app.set("view engine", "ejs");
 app.set("views", path.join(__dirname, "views"));
 app.engine("ejs", ejsMate);
@@ -59,32 +59,27 @@ const sessionOptions = {
 app.use(session(sessionOptions));
 app.use(flash());
 
-// 🔹 Passport Setup
+// Passport Setup
 app.use(passport.initialize());
 app.use(passport.session());
-
 passport.use(new LocalStrategy(User.authenticate()));
-
 passport.serializeUser(User.serializeUser());
 passport.deserializeUser(User.deserializeUser());
 
-// 🔹 Middleware
+// Middleware
 app.use(express.urlencoded({ extended: true }));
 app.use(express.static(path.join(__dirname, "public")));
 app.use(methodOverride("_method"));
 const subscriberRoutes = require("./routes/subscribers.js");
 app.use("/", subscriberRoutes);
-
-
 async function main() {
   await mongoose.connect(dbURL);
 }
-
 main()
   .then(() => console.log("✅ Connected to DB"))
   .catch((err) => console.log(err));
 
-// 🔹 Flash Middleware (GLOBAL)
+// Flash-Middleware
 app.use((req, res, next) => {
   res.locals.success = req.flash("success");
   res.locals.error = req.flash("error");
@@ -93,12 +88,12 @@ app.use((req, res, next) => {
   next();
 });
 
-// 🔹 HOME ROUTE
+// HOME-ROUTE
 app.get("/", (req, res) => {
   res.redirect("/listings");
 });
 
-// 🔹 DEMO USER (for testing)
+//DEMO USER 
 app.get("/demouser", async (req, res) => {
   let fakeUser = new User({
     username: "Tagur_Kethavth",
@@ -113,14 +108,12 @@ app.get("/allusers", async (req, res) => {
   const users = await User.find({});
   res.send(users);
 });
-// 🔹 Use Routes
+//Use Routes
 app.use("/listings", listingRoutes);
 app.use("/listings/:id/reviews", reviewRoutes);
 app.use("/users", userRoutes);
 
-// =======================
-// ⚠️ ERROR HANDLERS --2k24--
-// =======================
+
 
 // 404 Handler
 app.use((req, res, next) => {
@@ -133,7 +126,7 @@ app.use((err, req, res, next) => {
   res.status(statusCode).render("error.ejs", { message });
 });
 
-// 🔹 SERVER START
+//  SERVER START
 app.listen(8080, () => {
   console.log("🚀 Server is listening on port 8080");
 });

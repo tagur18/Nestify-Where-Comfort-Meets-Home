@@ -115,7 +115,7 @@
    
 </div>
 <div  id ="listingContainer" class="row row-cols-lg-4 row-cols-md-3  g-3 "> 
-<!-- row-cols-sm-1 -->
+
 <% for(let listing of alllistings){ %>
 
 <div class="col">
@@ -158,9 +158,7 @@ alt="listing_image">
 const input = document.getElementById("searchInput");
 const resultsBox = document.getElementById("searchResults");
 const container = document.getElementById("listingContainer");
-
-let timeout; // 🔥 debounce timer
-
+let timeout; 
 input.addEventListener("input", () => {
     clearTimeout(timeout);
 
@@ -171,9 +169,7 @@ input.addEventListener("input", () => {
             const res = await fetch(`/listings/search/api?q=${query}`);
             const data = await res.json();
 
-            // =========================
-            // 🔽 DROPDOWN
-            // =========================
+            
             resultsBox.innerHTML = "";
 
             if (query.length === 0) {
@@ -195,9 +191,7 @@ input.addEventListener("input", () => {
                 });
             }
 
-            // =========================
-            // 🔽 GRID
-            // =========================
+            
             container.innerHTML = "";
 
             if (data.length === 0) {
@@ -237,7 +231,7 @@ input.addEventListener("input", () => {
             console.log(err);
         }
 
-    }, 300); // ⏱️ delay (you can try 200–500)
+    }, 300); 
 });
 </script>
 <script>
@@ -261,7 +255,7 @@ input.addEventListener("input", () => {
   <h2 class="fw-bold">Stay Updated ✉️</h2>
   <p class="text-muted">Get travel deals & updates.</p>
 
-  <div class="search-container">  <!-- 🔥 ADD THIS -->
+  <div class="search-container">  
 
     <form action="/subscribe" method="POST" class="search-bar mt-3">
 
