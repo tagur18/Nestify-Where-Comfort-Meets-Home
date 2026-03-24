@@ -9,16 +9,24 @@
 </form> -->
 
 <!-- Search -->
+
+<% if (alllistings.length === 0) { %>
+  <h3>No listings found 😢</h3>
+<% } %>
+
+
 <div class="search-wrapper">
   <div class="search-container">
 
     <form action="/listings" method="GET" class="search-bar">
-      <input 
-        type="text" 
+     <input 
+       type="text" 
+        id="searchInput"
         name="search" 
-        placeholder="Search destinations"
+        placeholder="Discover amazing stays... ✨"
         class="search-input"
-      >
+       >
+       <div id="searchResults" class="search-results"></div>
 
       <button class="search-btn">
         <i class="fa-solid fa-magnifying-glass"></i> Search
@@ -106,7 +114,7 @@
     <div>
    
 </div>
-<div class="row row-cols-lg-4 row-cols-md-3  g-3 "> 
+<div  id ="listingContainer" class="row row-cols-lg-4 row-cols-md-3  g-3 "> 
 <!-- row-cols-sm-1 -->
 <% for(let listing of alllistings){ %>
 
@@ -145,6 +153,93 @@ alt="listing_image">
 
 </div>
 
+<!-- <Search -->
+<script>
+const input = document.getElementById("searchInput");
+const resultsBox = document.getElementById("searchResults");
+const container = document.getElementById("listingContainer");
+
+let timeout; // 🔥 debounce timer
+
+input.addEventListener("input", () => {
+    clearTimeout(timeout);
+
+    timeout = setTimeout(async () => {
+        const query = input.value.trim();
+
+        try {
+            const res = await fetch(`/listings/search/api?q=${query}`);
+            const data = await res.json();
+
+            // =========================
+            // 🔽 DROPDOWN
+            // =========================
+            resultsBox.innerHTML = "";
+
+            if (query.length === 0) {
+                resultsBox.style.display = "none";
+            } else {
+                resultsBox.style.display = "block";
+
+                data.slice(0, 5).forEach(listing => {
+                    const div = document.createElement("div");
+                    div.classList.add("result-item");
+
+                    div.innerHTML = `
+                        <a href="/listings/${listing._id}">
+                            ${listing.title}
+                        </a>
+                    `;
+
+                    resultsBox.appendChild(div);
+                });
+            }
+
+            // =========================
+            // 🔽 GRID
+            // =========================
+            container.innerHTML = "";
+
+            if (data.length === 0) {
+                container.innerHTML = "<h3>No listings found 😢</h3>";
+                return;
+            }
+
+            data.forEach(listing => {
+                const div = document.createElement("div");
+                div.classList.add("col");
+
+                div.innerHTML = `
+                <a href="/listings/${listing._id}" class="text-decoration-none text-dark">
+                    <div class="card h-100 listing-card">
+
+                        <img src="${listing.image.url}" 
+                             class="card-img-top"
+                             style="height:20rem; object-fit:cover;">
+
+                        <div class="card-body">
+                            <h5 class="card-title"><b>${listing.title}</b></h5>
+
+                            <p class="card-text text-muted">
+                                ${listing.description.substring(0,40)}...
+                                <b>₹ ${listing.price}</b> / night
+                            </p>
+                        </div>
+
+                    </div>
+                </a>
+                `;
+
+                container.appendChild(div);
+            });
+
+        } catch (err) {
+            console.log(err);
+        }
+
+    }, 300); // ⏱️ delay (you can try 200–500)
+});
+</script>
 <script>
  let taxSwitch = document.getElementById("flexSwitchCheckDefault");
  taxSwitch.addEventListener("click",()=>{
@@ -155,10 +250,10 @@ alt="listing_image">
   }else{
       info.style.display ="none";
   }
-
  }
  });
 </script>
+
 
 
 <div class="newsletter-section text-center p-5 mt-5">

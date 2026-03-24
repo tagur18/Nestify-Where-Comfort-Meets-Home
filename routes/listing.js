@@ -49,7 +49,19 @@ router.get(
 );
 
 
-
+// 🔍 LIVE SEARCH API
+router.get("/search/api", async (req, res) => {
+  const { q } = req.query;
+  let listings;
+  if (!q || q.trim() === "") {
+    listings = await Listing.find({});
+  } else {
+    listings = await Listing.find({
+      title: { $regex: q, $options: "i" }
+    });
+  }
+  res.json(listings);
+});
 
 
 module.exports = router;

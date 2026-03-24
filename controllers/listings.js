@@ -2,11 +2,29 @@ const Listing = require("../models/listing.js");
 const { listingSchema } = require("../schema.js");
 
 
-module.exports.index  = async (req, res) => {
-    const alllistings = await Listing.find({});
-     console.log("TOTAL LISTINGS:", alllistings.length);
+// module.exports.index  = async (req, res) => {
+//     const alllistings = await Listing.find({});
+//      console.log("TOTAL LISTINGS:", alllistings.length);
+//     res.render("listings/index.ejs", { alllistings });
+//   };
+
+
+
+//search and pagination
+module.exports.index = async (req, res) => {
+    const { search } = req.query;
+    let alllistings;
+    if (search && search.trim() !== "") {
+        alllistings = await Listing.find({
+            title: { $regex: search, $options: "i" }
+        });
+    } else {
+        alllistings = await Listing.find({});
+    }
+    console.log("TOTAL LISTINGS:", alllistings.length);
     res.render("listings/index.ejs", { alllistings });
-  };
+};
+//
 
   module.exports.renderNewForm = (req, res) => {
   res.render("listings/new.ejs");
