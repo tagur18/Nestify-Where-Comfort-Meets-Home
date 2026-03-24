@@ -421,3 +421,42 @@ a{
     font-size: 13px;
   }
 }
+
+
+
+/* ================= MOBILE FIX (SEARCH + NEWSLETTER) ================= */
+
+@media (max-width: 576px) {
+
+  .search-bar {
+    width: 95% !important;      /* fit inside screen */
+  }
+
+  .search-input {
+    width: auto !important;     /* remove fixed 400px */
+    flex: 1;
+    font-size: 14px;
+    padding: 10px 12px;
+    text-align: left;           /* better readability */
+  }
+
+  .search-btn {
+    padding: 6px 10px;          /* smaller button */
+    font-size: 8px;
+    border-radius: 30px;
+  }
+
+  /* SAME FOR NEWSLETTER (since using same classes) */
+  .newsletter-input {
+    width: auto !important;
+    flex: 1;
+    font-size: 14px;
+    padding: 10px 12px;
+    text-align: left;
+  }
+
+  .newsletter-btn {
+    padding: 6px 10px;
+    font-size: 8px;
+  }
+}
