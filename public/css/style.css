@@ -1,33 +1,41 @@
-
+/* ================= BASE ================= */
 
 body{
     font-family: "Lora", serif !important;
     display: flex;
-    flex-direction: column ;
+    flex-direction: column;
     min-height: 100vh;
     font-size: 20px !important;
-  line-height: 1.6 !important;
-  
- 
+    line-height: 1.6 !important;
 }
+
 .container{
    flex: 1;
 }
+
+/* ================= NAVBAR ================= */
+
 .navbar{
     height: 5rem;
     background-color: white;
 }
+
 .nav-link{
     color: #222222 !important;
 }
+
+/* ================= FOOTER ================= */
+
 .f-info-links a{
     text-decoration: none;
     color: #222222;
 }
+
 .f-info-links a:hover{
     text-decoration: underline;
     color: #e76464;
 }
+
 .f-info-links,
 .f-info-social,
 .f-info-brand{
@@ -41,6 +49,7 @@ body{
     margin-right: 1rem;
     font-size: 1.5rem;
 }
+
 .f-info{
     display: flex;
     text-align: center;
@@ -51,7 +60,7 @@ body{
     align-items: center;
 }
 
-
+/* ================= CARDS ================= */
 
 .listing-card{
     border: none !important;
@@ -65,8 +74,8 @@ body{
 
 .card-img-top {
     width: 100% !important;
-    height: 250px;   /* fixed height */
-    object-fit: cover !important;
+    height: 200px;
+    object-fit: cover;
     border-radius: 1rem !important;
 }
 
@@ -82,59 +91,79 @@ body{
     font-weight: 400;
     color: #6c757d;
 }
+
+/* ================= FORM ================= */
+
 form{
-background:white;
-padding:25px;
-border-radius:10px;
-box-shadow:0 5px 15px rgba(0,0,0,0.1);
+    background:white;
+    padding:25px;
+    border-radius:10px;
+    box-shadow:0 5px 15px rgba(0,0,0,0.1);
 }
 
+input:focus, textarea:focus {
+  border-color: #ff385c;
+}
+
+/* ================= LINKS ================= */
 
 a{
     text-decoration: none !important;
     color: inherit !important;
 }
+
+/* ================= BUTTON ================= */
+
 .btn{
     background-color: #e76464 !important;
     border: none !important;
 }
+
+/* ================= IMAGES ================= */
+
 .show-img{
     height: 40vh;
 }
 
 .preview-img {
-  width: 300px;        
-  height: 200px;       
-  object-fit: cover;   
-  border-radius: 10px; 
+  width: 300px;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 10px;
   margin-bottom: 10px;
 }
 
- #filters {
+/* ================= FILTER ================= */
+
+#filters {
   display: flex;
   flex-wrap: wrap;
-  align-items: center ;
+  align-items: center;
   text-align: center;
 }
+
 .filter{
     margin-top: 1.2rem;
-    text-align: center;
     margin-right: 2rem;
-    
     opacity: 0.7;
-  }.filter:hover{
+}
+
+.filter:hover{
     opacity: 1;
     cursor: pointer;
-  }
-  .filter p{
+}
+
+.filter p{
     font-size: 0.8rem;
-  }
+}
+
+/* ================= SEARCH ================= */
+
 .search-wrapper {
   width: 100%;
   display: flex;
   justify-content: center;
-  margin-top: 0px;
-  margin-bottom: 5px;   
+  margin-bottom: 5px;
 }
 
 .search-container {
@@ -148,7 +177,7 @@ a{
   background: white;
   border-radius: 35px;
   padding: 4px;
-    border: 2px solid black;
+  border: 2px solid black;
   box-shadow: 0 2px 8px rgba(5, 2, 2, 0.1);
 }
 
@@ -156,128 +185,35 @@ a{
   border: none;
   outline: none;
   padding: 8px 15px;
-  border-radius: 30px;
   width: 400px;
   text-align: center;
-  border-radius: 25px;
-  
-}
-
-.tax-toggle{
-  border: 1px solid black;
-  border-radius: 1rem;
-  height: 3.5rem;
-  padding: 1rem;
-padding-bottom: 1rem;
 }
 
 .search-btn {
   background: #ff385c;
   color: white;
-  border: none;
   padding: 6px 14px;
   border-radius: 30px;
-  cursor: pointer;
   border: 2px solid rgb(164, 158, 158);
 }
 
-.tax-info{
-   display: none;
+/* ================= TAX ================= */
 
-}
 .tax-toggle {
   border: 2px solid black;
   border-radius: 2rem;
   padding: 10px 20px;
-  display: flex;                /* 🔥 IMPORTANT */
-  align-items: center;          /* vertical center */
-  justify-content: space-between; /* text left, toggle right */
-
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
   gap: 15px;
 }
 
-/* Media-Queires */
-@media (max-width: 576px) {
-
-  /* 🔹 Navbar */
-  .navbar {
-    height: auto;
-    padding: 10px;
-  }
-
-  .nav-link {
-    font-size: 14px;
-  }
-
-  /* 🔹 Search */
-  .search-wrapper {
-    margin-top: 5px;
-  }
-
-  .search-input {
-    width: 180px;
-    font-size: 14px;
-  }
-
-  .search-btn {
-    padding: 5px 10px;
-    font-size: 14px;
-  }
-
-  /* 🔹 Filters */
-  #filters {
-    overflow-x: auto;
-    flex-wrap: nowrap;
-    gap: 15px;
-    padding-bottom: 10px;
-  }
-
-  .filter {
-    min-width: 70px;
-  }
-
-  .filter p {
-    font-size: 0.7rem;
-  }
-
-  /* 🔹 Cards */
-  .card-img-top {
-    height: 15rem;
-  }
-
-  h1 {
-    font-size: 22px;
-  }
-
-  /* 🔹 Footer */
-  .f-info {
-    height: auto;
-    padding: 10px;
-    flex-direction: column;
-    gap: 10px;
-  }
-
-  .f-info-social i {
-    font-size: 1.2rem;
-  }
+.tax-info{
+   display: none;
 }
 
-
-@media (max-width: 576px) {
-  #filters {
-    display: none !important;
-  }
-}
-@media (max-width: 576px) {
-  .card-img-top {
-    height: 12rem;
-  }
-}
-
-
-
-
-/* Newsletter Styling */
+/* ================= NEWSLETTER ================= */
 
 .newsletter-bar {
   display: flex;
@@ -285,7 +221,6 @@ padding-bottom: 1rem;
   align-items: center;
   max-width: 500px;
   margin: 0 auto;
-  border: 1px solid #ddd;
   border-radius: 50px;
   overflow: hidden;
   background: white;
@@ -295,97 +230,24 @@ padding-bottom: 1rem;
   flex: 1;
   padding: 5px 10px;
   border: none;
-  outline: none;
-  font-size: 16px;
 }
 
 .newsletter-btn {
-  padding: 5px 5px;
+  padding: 5px;
   border: none;
   background-color: #ff385c;
   color: white;
-  font-weight: 500;
-  cursor: pointer;
-  transition: 0.3s;
   border-radius: 30px;
-  font-size: 1rem;
 }
 
-.newsletter-btn:hover {
-  background-color: #e03150;
-}
-
-
-
-/* Info Strip Section */
-
-/* Info Strip Section */
-
-.info-strip {
-  background: #f1f1f1;
-  padding: 25px;
-  border-radius: 10px;
-  margin: 40px auto;
-  max-width: 1200px;
-}
-
-.info-container {
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
-  flex-wrap: wrap;
-  gap: 20px;
-}
-
-.info-item {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  font-size: 16px;
-}
-
-.info-item i {
-  font-size: 18px;
-}
-
-.f-info-social a {
-  margin: 0 10px;
-  color: #333;
-  font-size: 20px;
-  transition: 0.3s;
-}
-
-.f-info-social a:hover {
-  color: #ff385c;
-  transform: scale(1.2);
-}
-
-/* ================= SAFE MOBILE FIX ================= */
+/* ================= MOBILE (TABLET + SMALL) ================= */
 
 @media (max-width: 768px) {
 
-  /* Fix main container width */
-  .col-8.offset-2 {
-    width: 100% !important;
-    margin: 0 !important;
-  }
-
-  /* Fix review cards */
-  .card.col-5 {
-    width: 100% !important;
-    margin-left: 0 !important;
-  }
-
-}
-
-@media (max-width: 768px) {
-
-  /* Fix container padding */
   .container {
     padding: 10px;
   }
 
-  /* Reduce heading size */
   h2 {
     font-size: 20px;
   }
@@ -394,40 +256,65 @@ padding-bottom: 1rem;
     font-size: 18px;
   }
 
-  /* Improve card spacing */
   .card-body {
     padding: 12px !important;
   }
 
-}
-
-@media (max-width: 768px) {
-  .card-img-top {
-    height: 200px;
+  .col-8.offset-2 {
+    width: 100% !important;
+    margin: 0 !important;
   }
-}
 
-/* ================= MOBILE ONLY FORM IMPROVEMENT ================= */
+  .card.col-5 {
+    width: 100% !important;
+    margin-left: 0 !important;
+  }
 
-@media (max-width: 768px) {
-
-  /* Bigger input fields ONLY on mobile */
   input, textarea {
     padding: 14px;
     font-size: 17px;
   }
 
-  /* More space inside form */
   form {
     padding: 20px;
   }
 
-  /* Better spacing between fields */
-  .mb-3 {
-    margin-bottom: 1.2rem !important;
+  .card-img-top {
+    height: 180px;
+  }
+}
+
+/* ================= MOBILE (SMALL PHONES) ================= */
+
+@media (max-width: 576px) {
+
+  .navbar {
+    height: auto;
+    padding: 10px;
   }
 
-}
-input:focus, textarea:focus {
-  border-color: #ff385c;
+  .search-input {
+    width: 180px;
+  }
+
+  .search-btn {
+    font-size: 14px;
+  }
+
+  #filters {
+    display: none !important;
+  }
+
+  .card-img-top {
+    height: 160px;
+  }
+
+  .f-info {
+    height: auto;
+    flex-direction: column;
+  }
+
+  .f-info-social i {
+    font-size: 1.2rem;
+  }
 }
