@@ -3,7 +3,7 @@ const mongoose = require("mongoose");
 const initdata = require("./data.js");
 const Listing = require("../models/listing.js");
 
-const dbURL = process.env.ATLAS_URL || "mongodb://127.0.0.1:27017/Airbnb";
+const dbURL = process.env.MONGO_URL|| "mongodb://127.0.0.1:27017/Airbnb";
 
 async function main() {
   await mongoose.connect(dbURL);

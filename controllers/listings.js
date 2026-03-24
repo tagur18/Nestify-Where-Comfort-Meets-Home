@@ -4,6 +4,7 @@ const { listingSchema } = require("../schema.js");
 
 module.exports.index  = async (req, res) => {
     const alllistings = await Listing.find({});
+     console.log("TOTAL LISTINGS:", alllistings.length);
     res.render("listings/index.ejs", { alllistings });
   };
 
