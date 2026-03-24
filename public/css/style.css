@@ -159,6 +159,12 @@ a{
 
 /* ================= SEARCH ================= */
 
+/* ================= SEARCH (FIXED) ================= */
+
+/* ================= SEARCH (BIG + CLEAN) ================= */
+/* ================= SEARCH (FINAL PERFECT VERSION) ================= */
+/* ================= SEARCH (ORIGINAL STYLE FIXED) ================= */
+
 .search-wrapper {
   width: 100%;
   display: flex;
@@ -166,11 +172,7 @@ a{
   margin-bottom: 5px;
 }
 
-.search-container {
-  display: flex;
-  justify-content: center;
-}
-
+/* KEEP SAME LOOK */
 .search-bar {
   display: flex;
   align-items: center;
@@ -179,65 +181,76 @@ a{
   padding: 4px;
   border: 2px solid black;
   box-shadow: 0 2px 8px rgba(5, 2, 2, 0.1);
+
+  overflow: hidden;        /* 🔥 ONLY FIX NEEDED */
 }
 
+/* KEEP YOUR SIZE */
 .search-input {
   border: none;
   outline: none;
   padding: 8px 15px;
-  width: 400px;
+  width: 400px;            /* KEEP ORIGINAL */
   text-align: center;
 }
 
+/* FIX BUTTON */
 .search-btn {
   background: #ff385c;
   color: white;
   padding: 6px 14px;
   border-radius: 30px;
-  border: 2px solid rgb(164, 158, 158);
+
+  border: none;            /* 🔥 REMOVE THIS ONLY */
 }
-
-/* ================= TAX ================= */
-
-.tax-toggle {
-  border: 2px solid black;
-  border-radius: 2rem;
-  padding: 10px 20px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 15px;
-}
-
-.tax-info{
-   display: none;
-}
-
 /* ================= NEWSLETTER ================= */
+/* ================= NEWSLETTER (FIXED LIKE SEARCH) ================= */
+/* ================= NEWSLETTER (EXACT SAME AS SEARCH) ================= */
 
 .newsletter-bar {
   display: flex;
-  justify-content: center;
   align-items: center;
-  max-width: 500px;
-  margin: 0 auto;
-  border-radius: 50px;
-  overflow: hidden;
   background: white;
+  border-radius: 35px;
+  padding: 4px;
+  border: 2px solid black;
+  box-shadow: 0 2px 8px rgba(5, 2, 2, 0.1);
+
+  width: fit-content;     /* 🔥 same behavior as search */
+  margin: 0 auto;
+
+  overflow: hidden;       /* fixes edge */
 }
 
+/* INPUT */
 .newsletter-input {
-  flex: 1;
-  padding: 5px 10px;
   border: none;
+  outline: none;
+  padding: 8px 15px;
+  width: 400px;           /* 🔥 SAME as search-input */
+  text-align: center;
+  font-size: 16px;
+  background: transparent;
 }
 
+/* BUTTON */
 .newsletter-btn {
-  padding: 5px;
-  border: none;
-  background-color: #ff385c;
+  background: #ff385c;
   color: white;
+  padding: 6px 14px;
   border-radius: 30px;
+
+  border: none;           /* same fix as search */
+}
+/* ================= NEWSLETTER FIX (MATCH SEARCH EXACTLY) ================= */
+
+.newsletter-section .search-container {
+  display: flex;
+  justify-content: center;
+}
+
+.newsletter-section .search-bar {
+  width: fit-content !important;   /* 🔥 SAME AS SEARCH */
 }
 
 /* ================= MOBILE (TABLET + SMALL) ================= */
@@ -316,5 +329,95 @@ a{
 
   .f-info-social i {
     font-size: 1.2rem;
+  }
+}
+
+
+/* ================= INFO STRIP FIX ================= */
+
+.info-strip {
+  border-top: 1px solid #ccc;
+  padding: 15px 0;
+}
+
+.info-container {
+  display: flex;
+  justify-content: space-evenly;   /* 🔥 spreads items evenly */
+  align-items: center;
+  flex-wrap: wrap;
+  width: 100%;
+  max-width: 900px;
+  margin: 0 auto;
+}
+.info-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 15px;
+  color: #333;
+  text-decoration: none;
+}
+.info-item i {
+  font-size: 16px;
+}
+
+/* ================= FOOTER FIX ================= */
+
+.f-info {
+  background: #f1f1f1;
+  padding: 20px 10px;
+  text-align: center;
+}
+
+.f-info-social {
+  margin-bottom: 10px;
+}
+
+.f-info-social i {
+  font-size: 18px;
+  margin: 0 10px;
+  cursor: pointer;
+}
+
+.f-info-brand {
+  margin: 8px 0;
+  font-size: 14px;
+}
+
+.f-info-links a {
+  margin: 0 8px;
+  font-size: 14px;
+}
+
+
+/* //extra */
+
+/* ================= FORCE 2 CARDS ON MOBILE ================= */
+
+@media (max-width: 576px) {
+
+  .row > .col {
+    flex : 0 0 50% !important;
+    width: 50% !important;
+  }
+
+  .card-img-top {
+    height: 150px !important;
+  }
+
+  .card-body {
+    padding: 8px !important;
+  }
+
+  .card-title {
+    font-size: 13px;
+  }
+
+  .card-text {
+    font-size: 12px;
+  }
+
+  .price {
+    font-size: 13px;
   }
 }
