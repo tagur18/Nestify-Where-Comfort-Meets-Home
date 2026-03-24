@@ -63,11 +63,11 @@ body{
     transform: scale(1.03);
 }
 
-.card-img-top{
-    border-radius: 1rem !important;
+.card-img-top {
     width: 100% !important;
-    height: 20rem;
+    height: 250px;   /* fixed height */
     object-fit: cover !important;
+    border-radius: 1rem !important;
 }
 
 .card-body{
@@ -399,4 +399,35 @@ padding-bottom: 1rem;
     padding: 12px !important;
   }
 
+}
+
+@media (max-width: 768px) {
+  .card-img-top {
+    height: 200px;
+  }
+}
+
+/* ================= MOBILE ONLY FORM IMPROVEMENT ================= */
+
+@media (max-width: 768px) {
+
+  /* Bigger input fields ONLY on mobile */
+  input, textarea {
+    padding: 14px;
+    font-size: 17px;
+  }
+
+  /* More space inside form */
+  form {
+    padding: 20px;
+  }
+
+  /* Better spacing between fields */
+  .mb-3 {
+    margin-bottom: 1.2rem !important;
+  }
+
+}
+input:focus, textarea:focus {
+  border-color: #ff385c;
 }
