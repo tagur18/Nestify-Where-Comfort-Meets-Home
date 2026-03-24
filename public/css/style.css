@@ -429,34 +429,40 @@ a{
 @media (max-width: 576px) {
 
   .search-bar {
-    width: 95% !important;      /* fit inside screen */
+    width: 95% !important;
+    padding: 5px;
+    border-radius: 40px;
+    overflow: hidden; /* 🔥 FIX CUT BUTTON */
   }
 
   .search-input {
-    width: auto !important;     /* remove fixed 400px */
     flex: 1;
+    width: auto !important;
     font-size: 14px;
-    padding: 10px 12px;
-    text-align: left;           /* better readability */
+    padding: 10px 14px;
+    text-align: left;
   }
 
   .search-btn {
-    padding: 6px 10px;          /* smaller button */
-    font-size: 8px;
-    border-radius: 30px;
+    font-size: 13px;              /* ✅ readable */
+    padding: 8px 14px;            /* ✅ balanced */
+    border-radius: 25px;          /* ✅ clean, not too round */
+    white-space: nowrap;          /* 🔥 prevent break */
   }
 
-  /* SAME FOR NEWSLETTER (since using same classes) */
+  /* Newsletter (same styling) */
   .newsletter-input {
-    width: auto !important;
     flex: 1;
+    width: auto !important;
     font-size: 14px;
-    padding: 10px 12px;
+    padding: 10px 14px;
     text-align: left;
   }
 
   .newsletter-btn {
-    padding: 6px 10px;
-    font-size: 8px;
+    font-size: 13px;
+    padding: 8px 14px;
+    border-radius: 25px;
+    white-space: nowrap;
   }
 }
