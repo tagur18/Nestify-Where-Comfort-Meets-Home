@@ -359,3 +359,44 @@ padding-bottom: 1rem;
   color: #ff385c;
   transform: scale(1.2);
 }
+
+/* ================= SAFE MOBILE FIX ================= */
+
+@media (max-width: 768px) {
+
+  /* Fix main container width */
+  .col-8.offset-2 {
+    width: 100% !important;
+    margin: 0 !important;
+  }
+
+  /* Fix review cards */
+  .card.col-5 {
+    width: 100% !important;
+    margin-left: 0 !important;
+  }
+
+}
+
+@media (max-width: 768px) {
+
+  /* Fix container padding */
+  .container {
+    padding: 10px;
+  }
+
+  /* Reduce heading size */
+  h2 {
+    font-size: 20px;
+  }
+
+  h4 {
+    font-size: 18px;
+  }
+
+  /* Improve card spacing */
+  .card-body {
+    padding: 12px !important;
+  }
+
+}
