@@ -1,3 +1,7 @@
+<<<<<<< HEAD
+=======
+
+>>>>>>> d2d455c (updated search bar text)
 .starability-result {
   position: relative;
   width: 150px;
@@ -194,4 +198,8 @@
 .starability-slot > input:focus ~ label {
   -webkit-transition: background-position .7s;
   transition: background-position .7s;
+<<<<<<< HEAD
 }
+=======
+}
+>>>>>>> d2d455c (updated search bar text)

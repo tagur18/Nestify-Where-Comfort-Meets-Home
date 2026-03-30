@@ -12,7 +12,11 @@ const storage = new CloudinaryStorage({
   cloudinary: cloudinary,
   params: {
     folder: 'Air-bnb_DEV',
+<<<<<<< HEAD
     allowedFormats:  ["png","jpg","jpeg"],
+=======
+    allowed_formats:  ["png","jpg","jpeg"],
+>>>>>>> d2d455c (updated search bar text)
 
   },
 });
